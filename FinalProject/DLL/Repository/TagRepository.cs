@@ -1,6 +1,6 @@
 ﻿using FinalProject.DLL.Interface;
 using FinalProject.DLL.Models;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.DLL.Repository
 {

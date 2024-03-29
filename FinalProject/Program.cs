@@ -17,9 +17,9 @@ namespace FinalProject
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            
-            builder.Services.AddDbContext<BlogDB>();
-            
+
+            builder.Services.AddDbContext<BlogDB>(opt => opt.UseInMemoryDatabase("InMemoryDataBase"));
+
             var mapperConfig = new MapperConfiguration(m =>
             {
                 m.AddProfile(new MappingProfile());
