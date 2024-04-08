@@ -18,7 +18,7 @@ namespace FinalProject
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<BlogDB>(opt => opt.UseInMemoryDatabase("InMemoryDataBase"));
+            builder.Services.AddDbContext<BlogDB>();
 
             var mapperConfig = new MapperConfiguration(m =>
             {
