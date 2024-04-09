@@ -159,7 +159,7 @@ namespace FinalProject.Controllers
                 user.FirstName = request.FirstName;
                 user.LastName = request.LastName;
 
-                users.Update(user);
+                await users.Update(user);
             }
             catch { Console.WriteLine("UserUpdate : Error"); }
 
@@ -206,7 +206,7 @@ namespace FinalProject.Controllers
                 user.FirstName = request.FirstName;
                 user.LastName = request.LastName;
 
-                users.Update(user);
+                await users.Update(user);
             }
             catch { Console.WriteLine("UserUpdate : Error"); }
 

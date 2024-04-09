@@ -115,7 +115,7 @@ namespace FinalProject.Controllers
             _logger.Info("ArticleController : AddArticle");
             try
             {
-                User user = null;
+                User? user = null;
                 IEnumerable<Claim> claims;
                 string Login = string.Empty;
 
@@ -159,7 +159,7 @@ namespace FinalProject.Controllers
                 article.Title = model.Name;
                 article.Author = user;
 
-                CreateArticle(article);
+                await CreateArticle(article);
             }
             catch { }
 
@@ -215,7 +215,6 @@ namespace FinalProject.Controllers
             _logger.Info("ArticleController : ArticleUpdateById");
             try
             {
-                IEnumerable<Claim> claims;
                 string Login = string.Empty;
 
                 var user = await accountController.GetCurrentUser();
@@ -233,7 +232,7 @@ namespace FinalProject.Controllers
                 }
 
                 var tmpArticle = await GetById(ID);
-                var article = (Article)(tmpArticle as ObjectResult).Value;
+                var article = ((ObjectResult)tmpArticle).Value as Article;
                 article.Tags = requestTags;
                 article.BodyText = model.ArticleBody;
                 article.CreateTime = DateTime.Now;
