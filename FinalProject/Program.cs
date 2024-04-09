@@ -5,10 +5,9 @@ using FinalProject.Controllers;
 using FinalProject.DLL.Interface;
 using FinalProject.DLL.Repository;
 using FluentValidation;
-using System.Reflection.Metadata;
-using Microsoft.EntityFrameworkCore;
 using NLog.Web;
 using NLog.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject
 {
@@ -18,7 +17,11 @@ namespace FinalProject
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<BlogDB>();
+            //var connection = new SqliteConnection("Data Source = BlogAppDB.db");
+
+            string connection = builder.Configuration.GetConnectionString("DefaultConnection");
+
+            builder.Services.AddDbContext<BlogDB>((options => options.UseSqlite(connection)));
 
             var mapperConfig = new MapperConfiguration(m =>
             {
