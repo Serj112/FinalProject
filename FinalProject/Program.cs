@@ -5,8 +5,6 @@ using FinalProject.Controllers;
 using FinalProject.DLL.Interface;
 using FinalProject.DLL.Repository;
 using FluentValidation;
-using System.Reflection.Metadata;
-using Microsoft.EntityFrameworkCore;
 using NLog.Web;
 using NLog.Extensions.Logging;
 
